@@ -7,7 +7,7 @@ import org.openqa.selenium.By;
 public class FileUpload {
     public static void main(String[] args) {
 
-        System.setProperty("webdriver.chrome.driver", "/Users/meaghanlewis/Downloads/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
         WebDriver driver = new ChromeDriver();
 
