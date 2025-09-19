@@ -5,10 +5,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static org.junit.Assert.assertEquals;
+import java.time.Duration;
+
 
 public class Form {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 
@@ -33,6 +34,19 @@ public class Form {
 
         driver.findElement(By.cssSelector(".btn.btn-lg.btn-primary")).click();
 
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement alert = wait.until(ExpectedConditions.visibilityOfElementLocated(By.className("alert")));
+
+        String alertText = alert.getText();
+        System.out.println("Alert text: " + alertText);
+        
+        // Simple assertion without JUnit
+        if ("The form was successfully submitted!".equals(alertText)) {
+            System.out.println("Test PASSED: Form submission successful!");
+        } else {
+            System.out.println("Test FAILED: Expected 'The form was successfully submitted!' but got: " + alertText);
+        }
+        
         driver.quit();
     }
 }
