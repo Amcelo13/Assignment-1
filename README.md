@@ -47,3 +47,11 @@ To run the test samples:
 ## License
 
 This project is part of academic coursework for Advanced Computing Concepts.
+
+
+For the puropose of installing selenium server grid
+1. Install it from selenium grid
+2. Now where this jar file is situated go to the directory - cd /Users/chetansmac/Downloads/selenium-server-4.35.0.jar
+3. Now run the command - "java -jar selenium-server-4.35.0.jar hub"
+4.Started Selenium Hub 4.35.0 (revision 1c58e5028b): http://10.72.26.91:4444 go here and see the hub is running
+5. Now run this command to add a local node of selenium - "java -jar selenium-server-4.35.0.jar node --hub http://10.72.26.91:4444 --port 5555"
